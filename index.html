@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Protocolo Blindagem Digital — Sua Segurança Online</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700;800&display=swap"
+            rel="stylesheet"
+        />
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+            rel="stylesheet"
+        />
+
+        <style>
+            :root {
+                --bg-dark: #020617;
+                --bg-card: #0f172a;
+                --primary-accent: #0ea5e9;
+                --primary-glow: rgba(14, 165, 233, 0.4);
+                --secondary-accent: #6366f1;
+                --text-main: #f8fafc;
+                --success: #10b981;
+            }
+
+            body {
+                font-family: "Inter", sans-serif;
+                background-color: var(--bg-dark);
+                color: var(--text-main);
+                overflow-x: hidden;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5 {
+                font-family: "Poppins", sans-serif;
+                color: white;
+            }
+
+            /* --- ESTILOS DOS NÚMEROS ANIMADOS --- */
+            .stat-number {
+                font-size: 3rem;
+                font-weight: 800;
+                display: block;
+                color: var(--primary-accent);
+                text-shadow: 0 0 15px var(--primary-glow);
+                margin-bottom: 5px;
+            }
+            .stat-card {
+                background: rgba(15, 23, 42, 0.6);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                padding: 30px;
+                border-radius: 20px;
+                transition: 0.3s;
+            }
+            .stat-card:hover {
+                border-color: var(--primary-accent);
+            }
+
+            /* --- NAVBAR --- */
+            .navbar {
+                background: rgba(2, 6, 23, 0.85);
+                backdrop-filter: blur(12px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 1rem 0;
+            }
+
+            .navbar-brand {
+                font-weight: 800;
+                letter-spacing: -0.5px;
+                background: linear-gradient(
+                    to right,
+                    #fff,
+                    var(--primary-accent)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .nav-link {
+                color: var(--text-main) !important;
+                font-weight: 500;
+                transition: 0.3s;
+            }
+
+            .nav-link:hover {
+                color: var(--primary-accent) !important;
+            }
+
+            /* --- BOTÕES --- */
+            .btn-main {
+                background: linear-gradient(
+                    90deg,
+                    var(--secondary-accent),
+                    var(--primary-accent)
+                );
+                border: none;
+                color: white !important;
+                font-weight: 700;
+                text-transform: uppercase;
+                padding: 12px 30px;
+                border-radius: 50px;
+                box-shadow: 0 0 20px var(--primary-glow);
+                transition: all 0.3s ease;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            .btn-main:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 0 35px var(--primary-glow);
+            }
+
+            /* --- HERO --- */
+            .hero-section {
+                min-height: 80vh;
+                background:
+                    radial-gradient(
+                        circle at top right,
+                        rgba(99, 102, 241, 0.15),
+                        transparent 40%
+                    ),
+                    linear-gradient(to bottom, var(--bg-dark), #0f172a);
+                padding-top: 120px;
+                display: flex;
+                align-items: center;
+            }
+
+            .hero-badge {
+                background: rgba(14, 165, 233, 0.1);
+                color: var(--primary-accent);
+                padding: 5px 15px;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                border: 1px solid rgba(14, 165, 233, 0.2);
+                display: inline-block;
+                margin-bottom: 1.5rem;
+            }
+
+            .display-title {
+                font-size: 3.5rem;
+                line-height: 1.1;
+                margin-bottom: 1.5rem;
+                background: linear-gradient(to right, #ffffff, #e2e8f0);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .highlight-text {
+                color: var(--primary-accent);
+                -webkit-text-fill-color: var(--primary-accent);
+            }
+
+            /* --- CARDS --- */
+            .feature-card {
+                background: rgba(30, 41, 59, 0.5);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 16px;
+                padding: 2rem;
+                height: 100%;
+            }
+
+            .icon-box {
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(
+                    135deg,
+                    rgba(14, 165, 233, 0.2),
+                    rgba(99, 102, 241, 0.2)
+                );
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.8rem;
+                color: var(--primary-accent);
+                margin-bottom: 1.5rem;
+            }
+
+            /* --- VIDEO --- */
+            .video-wrapper {
+                position: relative;
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .video-glow {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 80%;
+                height: 80%;
+                background: var(--primary-accent);
+                filter: blur(100px);
+                opacity: 0.2;
+                z-index: -1;
+            }
+
+            /* --- MATERIAL CARDS --- */
+            .material-card {
+                background: var(--bg-card);
+                border-left: 4px solid var(--primary-accent);
+                border-radius: 8px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .btn-download-outline {
+                border: 1px solid rgba(14, 165, 233, 0.4);
+                color: var(--primary-accent);
+                padding: 10px 20px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: 0.3s;
+                font-size: 0.9rem;
+            }
+            .btn-download-outline:hover {
+                background: rgba(14, 165, 233, 0.1);
+                color: white;
+            }
+
+            footer a {
+                color: var(--primary-accent);
+                text-decoration: none;
+                transition: 0.3s;
+            }
+            footer a:hover {
+                color: white;
+                text-decoration: underline;
+            }
+
+            @media (max-width: 768px) {
+                .display-title {
+                    font-size: 2.5rem;
+                }
+                .hero-section {
+                    text-align: center;
+                }
+            }
+            /* --- ESTILO DO MODAL UI/UX --- */
+            .modal-content {
+                background: rgba(15, 23, 42, 0.9);
+                backdrop-filter: blur(15px);
+                border: 1px solid rgba(14, 165, 233, 0.3);
+                border-radius: 24px;
+                color: var(--text-main);
+            }
+
+            .modal-header {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                padding: 1.5rem 1.5rem 1rem;
+            }
+
+            .modal-footer {
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .modal-title {
+                font-weight: 700;
+                letter-spacing: -0.5px;
+            }
+
+            .btn-close-white {
+                filter: invert(1) grayscale(100%) brightness(200%);
+            }
+
+            .modal-info-icon {
+                font-size: 2.5rem;
+                color: var(--primary-accent);
+                margin-bottom: 1rem;
+                display: inline-block;
+                text-shadow: 0 0 15px var(--primary-glow);
+            }
+        </style>
+    </head>
+    <body>
+        <div
+            class="modal fade"
+            id="avisoEducativo"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="avisoEducativoLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5
+                            class="modal-title d-flex align-items-center"
+                            id="avisoEducativoLabel"
+                        >
+                            <i
+                                class="bi bi-shield-exclamation me-2 text-primary"
+                            ></i>
+                            Aviso Importante
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body text-center p-4">
+                        <div class="modal-info-icon">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Projeto Educativo</h4>
+                        <p class="opacity-75">
+                            Este site é uma plataforma **estritamente educativa
+                            e informativa**, desenvolvida para fins acadêmicos e
+                            de conscientização social.
+                        </p>
+                        <div
+                            class="p-3 rounded-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25 mb-3"
+                        >
+                            <small
+                                >Desenvolvido com foco em segurança digital
+                                por:</small
+                            >
+                            <p class="mb-0 fw-bold text-primary">
+                                Guilherme Ramon
+                            </p>
+                            <a
+                                href="https://github.com/guilherme-ramon"
+                                target="_blank"
+                                class="text-decoration-none small"
+                            >
+                                <i class="bi bi-github"></i>
+                                github.com/guilherme-ramon
+                            </a>
+                        </div>
+                        <p class="small text-secondary">
+                            As informações aqui contidas visam apenas auxiliar
+                            na prevenção de fraudes eletrônicas.
+                        </p>
+                    </div>
+                    <div
+                        class="modal-footer justify-content-center border-0 pb-4"
+                    >
+                        <button
+                            type="button"
+                            class="btn-main px-5"
+                            data-bs-dismiss="modal"
+                        >
+                            Entendido
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#"
+                    ><i class="bi bi-shield-check me-2"></i>Blindagem Digital</a
+                >
+                <button
+                    class="navbar-toggler border-0"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navMenu"
+                >
+                    <i class="bi bi-list text-white fs-2"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#beneficios">Conteúdo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#video">Aula</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#materiais">Downloads</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="hero-badge">
+                            <i class="bi bi-info-circle me-2"></i> ACESSO
+                            GRATUITO À INFORMAÇÃO
+                        </div>
+                        <h1 class="display-title fw-bold">
+                            Blindagem Digital: <br />
+                            <span class="highlight-text"
+                                >Proteja-se de Golpes.</span
+                            >
+                        </h1>
+                        <p class="lead mb-4">
+                            Assista à aula completa e baixe os materiais para
+                            aprender a identificar fraudes, proteger seus dados
+                            bancários e navegar com segurança.
+                        </p>
+                        <div
+                            class="d-flex flex-column flex-sm-row gap-3 justify-content-lg-start justify-content-center"
+                        >
+                            <a href="#video" class="btn-main">Começar Agora</a>
+                        </div>
+                    </div>
+                    <div
+                        class="col-lg-5 d-none d-lg-block text-center position-relative"
+                    >
+                        <img
+                            src="midia/seguranca.png"
+                            alt="Segurança"
+                            class="img-fluid"
+                            style="
+                                max-height: 400px;
+                                filter: drop-shadow(
+                                    0 0 20px rgba(14, 165, 233, 0.3)
+                                );
+                                border-radius: 10%;
+                            "
+                        />
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-5" style="background: rgba(15, 23, 42, 0.3)">
+            <div class="container py-4">
+                <div class="row g-4 text-center">
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="2800"
+                                >0</span
+                            >
+                            <p class="text-uppercase small fw-bold opacity-75">
+                                Tentativas de golpe por minuto no Brasil
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="150">0</span>
+                            <p class="text-uppercase small fw-bold opacity-75">
+                                Bilhões de reais perdidos em 2024
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="70">0</span>
+                            <p class="text-uppercase small fw-bold opacity-75">
+                                Milhões de brasileiros atingidos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="beneficios" class="py-5">
+            <div class="container py-5">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold display-6">O que este guia ensina</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="icon-box">
+                                <i class="bi bi-eye"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Identificação</h4>
+                            <p>
+                                Como ler os sinais de sites e mensagens falsas
+                                antes de clicar.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="icon-box">
+                                <i class="bi bi-shield-lock"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Higiene Digital</h4>
+                            <p>
+                                Aprenda a criar frases-senha inquebráveis e a
+                                usar camadas de proteção além do SMS.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="icon-box">
+                                <i class="bi bi-check-all"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Ação Direta</h4>
+                            <p>
+                                O passo a passo imediato do que fazer caso você
+                                sofra uma tentativa de golpe.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="video" class="py-5">
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <h2 class="fw-bold mb-4">
+                            Aula: Guia de Segurança Digital
+                        </h2>
+                        <div class="position-relative">
+                            <div class="video-glow"></div>
+                            <div class="video-wrapper ratio ratio-16x9">
+                                <iframe
+                                    src="https://www.youtube.com/embed/rMk1e3FeLY4"
+                                    allowfullscreen
+                                ></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="materiais" class="py-5 mb-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="hero-badge mb-2">Biblioteca</span>
+                    <h2 class="fw-bold display-5">Material Complementar</h2>
+                    <p class="opacity-75">
+                        Leve o conhecimento com você e proteja sua família
+                        offline.
+                    </p>
+                </div>
+
+                <div class="row justify-content-center g-4">
+                    <div class="col-md-5">
+                        <div class="material-card p-4 h-100 d-flex flex-column">
+                            <div class="d-flex align-items-center mb-4">
+                                <div
+                                    class="icon-box mb-0 me-3"
+                                    style="width: 50px; height: 50px"
+                                >
+                                    <i class="bi bi-file-earmark-pdf"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-0 text-white">
+                                        Guia Visual PDF
+                                    </h5>
+                                    <small class="text-danger fw-bold"
+                                        >Manual Prático</small
+                                    >
+                                </div>
+                            </div>
+
+                            <p class="text-secondary flex-grow-1">
+                                O "Protocolo de Defesa" completo em alta
+                                resolução. Ideal para revisar os sinais de
+                                alerta e compartilhar no WhatsApp.
+                            </p>
+
+                            <div class="d-flex gap-2 mt-4">
+                                <a
+                                    href="midia/seguranca-digital.pdf"
+                                    target="_blank"
+                                    class="btn-download-outline"
+                                >
+                                    <i class="bi bi-eye me-1"></i> Visualizar
+                                </a>
+                                <a
+                                    href="midia/seguranca-digital.pdf"
+                                    download
+                                    class="btn-main py-2 px-4 shadow-none"
+                                    style="font-size: 0.9rem"
+                                >
+                                    <i class="bi bi-cloud-arrow-down me-1"></i>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <div class="material-card p-4 h-100 d-flex flex-column">
+                            <div class="d-flex align-items-center mb-4">
+                                <div
+                                    class="icon-box mb-0 me-3"
+                                    style="
+                                        width: 50px;
+                                        height: 50px;
+                                        background: rgba(99, 102, 241, 0.2);
+                                    "
+                                >
+                                    <i
+                                        class="bi bi-mic"
+                                        style="color: #6366f1"
+                                    ></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-0 text-white">
+                                        Podcast de Bolso
+                                    </h5>
+                                    <small class="text-primary fw-bold"
+                                        >Conteúdo em Áudio</small
+                                    >
+                                </div>
+                            </div>
+
+                            <p class="text-secondary mb-4">
+                                Escolha a versão que melhor se adapta ao seu
+                                tempo. Ouça enquanto dirige ou faz suas
+                                atividades.
+                            </p>
+
+                            <div
+                                class="mb-4 p-3 rounded-3"
+                                style="
+                                    background: rgba(255, 255, 255, 0.03);
+                                    border: 1px solid rgba(255, 255, 255, 0.05);
+                                "
+                            >
+                                <div
+                                    class="d-flex justify-content-between align-items-center mb-2"
+                                >
+                                    <span class="small fw-bold text-white"
+                                        ><i
+                                            class="bi bi-lightning-charge-fill text-warning me-1"
+                                        ></i>
+                                        Versão Express (6 min)</span
+                                    >
+                                </div>
+                                <audio
+                                    controls
+                                    class="w-100 mb-2"
+                                    style="height: 35px"
+                                >
+                                    <source
+                                        src="midia/seguranca-digital-resumo.mp3"
+                                        type="audio/mpeg"
+                                    />
+                                </audio>
+                                <a
+                                    href="midia/seguranca-digital-resumo.mp3"
+                                    download
+                                    class="text-primary small text-decoration-none"
+                                >
+                                    <i class="bi bi-download me-1"></i> Baixar
+                                    resumo
+                                </a>
+                            </div>
+
+                            <div
+                                class="p-3 rounded-3"
+                                style="
+                                    background: rgba(255, 255, 255, 0.03);
+                                    border: 1px solid rgba(255, 255, 255, 0.05);
+                                "
+                            >
+                                <div
+                                    class="d-flex justify-content-between align-items-center mb-2"
+                                >
+                                    <span class="small fw-bold text-white"
+                                        ><i
+                                            class="bi bi-book-fill text-info me-1"
+                                        ></i>
+                                        Versão Completa (16 min)</span
+                                    >
+                                </div>
+                                <audio
+                                    controls
+                                    class="w-100 mb-2"
+                                    style="height: 35px"
+                                >
+                                    <source
+                                        src="midia/seguranca-digital.mp3"
+                                        type="audio/mpeg"
+                                    />
+                                </audio>
+                                <a
+                                    href="midia/seguranca-digital.mp3"
+                                    download
+                                    class="text-primary small text-decoration-none"
+                                >
+                                    <i class="bi bi-download me-1"></i> Baixar
+                                    completo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer
+            class="py-5 text-center border-top border-secondary border-opacity-25"
+        >
+            <div class="container">
+                <small class="opacity-75">
+                    © <span id="currentYear"></span> Atividade Extensionista •
+                    Segurança Digital. <br />
+                    Desenvolvido por
+                    <a
+                        href="https://github.com/guilherme-ramon"
+                        target="_blank"
+                        class="fw-bold"
+                    >
+                        Guilherme Ramon <i class="bi bi-github"></i>
+                    </a>
+                    <br />
+                    Este site possui fins puramente educativos e informativos.
+                </small>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+    // Define o ano atual automaticamente
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    function animateNumbers() {
+        const stats = document.querySelectorAll(".stat-number");
+
+        stats.forEach((stat) => {
+            const target = parseInt(stat.getAttribute("data-target"));
+            const duration = 4000; 
+            const startTimestamp = performance.now();
+
+            function step(currentTimestamp) {
+                const elapsed = currentTimestamp - startTimestamp;
+                const progress = Math.min(elapsed / duration, 1);
+
+                const currentCount = Math.floor(progress * target);
+
+                let suffix = "";
+                if (target === 150) suffix = " Bi";
+                if (target === 70) suffix = " Mi";
+
+                stat.innerText = currentCount.toLocaleString() + suffix;
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            }
+            window.requestAnimationFrame(step);
+        });
+    }
+
+    // Lógica do Modal e Disparo da Animação
+    window.addEventListener("DOMContentLoaded", () => {
+        const modalElement = document.getElementById("avisoEducativo");
+        const myModal = new bootstrap.Modal(modalElement);
+
+        // Dispara o modal após 800ms
+        setTimeout(() => {
+            myModal.show();
+        }, 800);
+
+        // O SEGREDO: Escuta quando o modal terminou de fechar
+        modalElement.addEventListener('hidden.bs.modal', function () {
+            // Rola suavemente para o topo (caso não esteja) e inicia os números
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            animateNumbers();
+        });
+    });
+</script>
+    </body>
+</html>
