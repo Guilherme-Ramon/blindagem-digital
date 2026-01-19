@@ -20,7 +20,50 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
             rel="stylesheet"
         />
+        <title>
+            Protocolo Blindagem Digital — Proteção contra Golpes Online
+        </title>
+        <meta
+            name="title"
+            content="Protocolo Blindagem Digital — Proteção contra Golpes Online"
+        />
+        <meta
+            name="description"
+            content="Aprenda a identificar fraudes, evitar golpes de Pix e proteger seus dados. Guia gratuito desenvolvido por Guilherme Ramon para conscientização sobre segurança digital."
+        />
 
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://guiablindagemdigital.vercel.app/"
+        />
+        <meta
+            property="og:title"
+            content="🛡️ Protocolo Blindagem Digital — Proteja-se Online"
+        />
+        <meta
+            property="og:description"
+            content="Baixe o Guia de Defesa Digital e aprenda a identificar sinais de golpes antes de clicar."
+        />
+        <meta
+            property="og:image"
+            content="https://guiablindagemdigital.vercel.app/midia/og-image.png"
+        />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+            property="twitter:url"
+            content="https://guiablindagemdigital.vercel.app/"
+        />
+        <meta property="twitter:title" content="Protocolo Blindagem Digital" />
+        <meta
+            property="twitter:description"
+            content="Sua mente é o único antivírus que importa. Aprenda a trancar as portas contra crimes cibernéticos."
+        />
+        <meta
+            property="twitter:image"
+            content="https://guiablindagemdigital.vercel.app/midia/og-image.png"
+        />
         <style>
             :root {
                 --bg-dark: #020617;
@@ -289,16 +332,19 @@
         </style>
     </head>
     <body>
+        <!-- Modal Educativo com ARIA melhorado -->
         <div
             class="modal fade"
             id="avisoEducativo"
             data-bs-backdrop="static"
             data-bs-keyboard="false"
             tabindex="-1"
+            role="dialog"
             aria-labelledby="avisoEducativoLabel"
+            aria-modal="true"
             aria-hidden="true"
         >
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5
@@ -307,6 +353,7 @@
                         >
                             <i
                                 class="bi bi-shield-exclamation me-2 text-primary"
+                                aria-hidden="true"
                             ></i>
                             Aviso Importante
                         </h5>
@@ -314,18 +361,19 @@
                             type="button"
                             class="btn-close btn-close-white"
                             data-bs-dismiss="modal"
-                            aria-label="Close"
+                            aria-label="Fechar aviso"
                         ></button>
                     </div>
                     <div class="modal-body text-center p-4">
-                        <div class="modal-info-icon">
+                        <div class="modal-info-icon" aria-hidden="true">
                             <i class="bi bi-mortarboard"></i>
                         </div>
                         <h4 class="fw-bold mb-3">Projeto Educativo</h4>
                         <p class="opacity-75">
-                            Este site é uma plataforma **estritamente educativa
-                            e informativa**, desenvolvida para fins acadêmicos e
-                            de conscientização social.
+                            Este site é uma plataforma
+                            <strong>estritamente educativa e informativa</strong
+                            >, desenvolvida para fins acadêmicos e de
+                            conscientização social.
                         </p>
                         <div
                             class="p-3 rounded-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25 mb-3"
@@ -340,9 +388,11 @@
                             <a
                                 href="https://github.com/guilherme-ramon"
                                 target="_blank"
+                                rel="noopener"
                                 class="text-decoration-none small"
+                                aria-label="Acessar perfil de Guilherme Ramon no GitHub (abre em nova aba)"
                             >
-                                <i class="bi bi-github"></i>
+                                <i class="bi bi-github" aria-hidden="true"></i>
                                 github.com/guilherme-ramon
                             </a>
                         </div>
@@ -365,18 +415,35 @@
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg fixed-top">
+
+        <!-- Navegação Acessível -->
+        <nav
+            class="navbar navbar-expand-lg fixed-top"
+            role="navigation"
+            aria-label="Menu principal"
+        >
             <div class="container">
-                <a class="navbar-brand" href="#"
-                    ><i class="bi bi-shield-check me-2"></i>Blindagem Digital</a
+                <a
+                    class="navbar-brand"
+                    href="#"
+                    aria-label="Ir para o topo da página"
                 >
+                    <i class="bi bi-shield-check me-2" aria-hidden="true"></i
+                    >Blindagem Digital
+                </a>
                 <button
                     class="navbar-toggler border-0"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#navMenu"
+                    aria-controls="navMenu"
+                    aria-expanded="false"
+                    aria-label="Alternar navegação"
                 >
-                    <i class="bi bi-list text-white fs-2"></i>
+                    <i
+                        class="bi bi-list text-white fs-2"
+                        aria-hidden="true"
+                    ></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navMenu">
                     <ul class="navbar-nav ms-auto align-items-center">
@@ -398,9 +465,12 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-7">
-                        <div class="hero-badge">
-                            <i class="bi bi-info-circle me-2"></i> ACESSO
-                            GRATUITO À INFORMAÇÃO
+                        <div class="hero-badge" role="doc-subtitle">
+                            <i
+                                class="bi bi-info-circle me-2"
+                                aria-hidden="true"
+                            ></i>
+                            ACESSO GRATUITO À INFORMAÇÃO
                         </div>
                         <h1 class="display-title fw-bold">
                             Blindagem Digital: <br />
@@ -424,7 +494,7 @@
                     >
                         <img
                             src="midia/seguranca.png"
-                            alt="Segurança"
+                            alt="Ilustração representando segurança digital com escudo e cadeado"
                             class="img-fluid"
                             style="
                                 max-height: 400px;
@@ -439,12 +509,20 @@
             </div>
         </header>
 
-        <section class="py-5" style="background: rgba(15, 23, 42, 0.3)">
+        <!-- Estatísticas -->
+        <section
+            class="py-5"
+            style="background: rgba(15, 23, 42, 0.3)"
+            aria-label="Estatísticas de segurança"
+        >
             <div class="container py-4">
                 <div class="row g-4 text-center">
                     <div class="col-md-4">
                         <div class="stat-card">
-                            <span class="stat-number" data-target="2800"
+                            <span
+                                class="stat-number"
+                                data-target="2800"
+                                aria-live="polite"
                                 >0</span
                             >
                             <p class="text-uppercase small fw-bold opacity-75">
@@ -454,7 +532,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="stat-card">
-                            <span class="stat-number" data-target="150">0</span>
+                            <span
+                                class="stat-number"
+                                data-target="150"
+                                aria-live="polite"
+                                >0</span
+                            >
                             <p class="text-uppercase small fw-bold opacity-75">
                                 Bilhões de reais perdidos em 2024
                             </p>
@@ -462,7 +545,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="stat-card">
-                            <span class="stat-number" data-target="70">0</span>
+                            <span
+                                class="stat-number"
+                                data-target="70"
+                                aria-live="polite"
+                                >0</span
+                            >
                             <p class="text-uppercase small fw-bold opacity-75">
                                 Milhões de brasileiros atingidos
                             </p>
@@ -472,6 +560,7 @@
             </div>
         </section>
 
+        <!-- Benefícios -->
         <section id="beneficios" class="py-5">
             <div class="container py-5">
                 <div class="text-center mb-5">
@@ -480,10 +569,10 @@
                 <div class="row g-4">
                     <div class="col-md-4">
                         <div class="feature-card">
-                            <div class="icon-box">
+                            <div class="icon-box" aria-hidden="true">
                                 <i class="bi bi-eye"></i>
                             </div>
-                            <h4 class="fw-bold mb-3">Identificação</h4>
+                            <h3 class="h4 fw-bold mb-3">Identificação</h3>
                             <p>
                                 Como ler os sinais de sites e mensagens falsas
                                 antes de clicar.
@@ -492,10 +581,10 @@
                     </div>
                     <div class="col-md-4">
                         <div class="feature-card">
-                            <div class="icon-box">
+                            <div class="icon-box" aria-hidden="true">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
-                            <h4 class="fw-bold mb-3">Higiene Digital</h4>
+                            <h3 class="h4 fw-bold mb-3">Higiene Digital</h3>
                             <p>
                                 Aprenda a criar frases-senha inquebráveis e a
                                 usar camadas de proteção além do SMS.
@@ -504,10 +593,10 @@
                     </div>
                     <div class="col-md-4">
                         <div class="feature-card">
-                            <div class="icon-box">
+                            <div class="icon-box" aria-hidden="true">
                                 <i class="bi bi-check-all"></i>
                             </div>
-                            <h4 class="fw-bold mb-3">Ação Direta</h4>
+                            <h3 class="h4 fw-bold mb-3">Ação Direta</h3>
                             <p>
                                 O passo a passo imediato do que fazer caso você
                                 sofra uma tentativa de golpe.
@@ -518,6 +607,7 @@
             </div>
         </section>
 
+        <!-- Vídeo Acessível -->
         <section id="video" class="py-5">
             <div class="container text-center">
                 <div class="row justify-content-center">
@@ -526,10 +616,11 @@
                             Aula: Guia de Segurança Digital
                         </h2>
                         <div class="position-relative">
-                            <div class="video-glow"></div>
+                            <div class="video-glow" aria-hidden="true"></div>
                             <div class="video-wrapper ratio ratio-16x9">
                                 <iframe
                                     src="https://www.youtube.com/embed/rMk1e3FeLY4"
+                                    title="Aula completa sobre Blindagem Digital e prevenção de golpes"
                                     allowfullscreen
                                 ></iframe>
                             </div>
@@ -539,6 +630,7 @@
             </div>
         </section>
 
+        <!-- Materiais -->
         <section id="materiais" class="py-5 mb-5">
             <div class="container">
                 <div class="text-center mb-5">
@@ -551,52 +643,63 @@
                 </div>
 
                 <div class="row justify-content-center g-4">
+                    <!-- PDF -->
                     <div class="col-md-5">
                         <div class="material-card p-4 h-100 d-flex flex-column">
                             <div class="d-flex align-items-center mb-4">
                                 <div
                                     class="icon-box mb-0 me-3"
                                     style="width: 50px; height: 50px"
+                                    aria-hidden="true"
                                 >
                                     <i class="bi bi-file-earmark-pdf"></i>
                                 </div>
                                 <div>
-                                    <h5 class="fw-bold mb-0 text-white">
+                                    <h3 class="h5 fw-bold mb-0 text-white">
                                         Guia Visual PDF
-                                    </h5>
+                                    </h3>
                                     <small class="text-danger fw-bold"
                                         >Manual Prático</small
                                     >
                                 </div>
                             </div>
-
                             <p class="text-secondary flex-grow-1">
                                 O "Protocolo de Defesa" completo em alta
                                 resolução. Ideal para revisar os sinais de
                                 alerta e compartilhar no WhatsApp.
                             </p>
-
                             <div class="d-flex gap-2 mt-4">
                                 <a
                                     href="midia/seguranca-digital.pdf"
                                     target="_blank"
+                                    rel="noopener"
                                     class="btn-download-outline"
+                                    aria-label="Visualizar Guia Visual PDF (abre em nova aba)"
                                 >
-                                    <i class="bi bi-eye me-1"></i> Visualizar
+                                    <i
+                                        class="bi bi-eye me-1"
+                                        aria-hidden="true"
+                                    ></i>
+                                    Visualizar
                                 </a>
                                 <a
                                     href="midia/seguranca-digital.pdf"
                                     download
                                     class="btn-main py-2 px-4 shadow-none"
                                     style="font-size: 0.9rem"
+                                    aria-label="Baixar Guia Visual PDF"
                                 >
-                                    <i class="bi bi-cloud-arrow-down me-1"></i>
+                                    <i
+                                        class="bi bi-cloud-arrow-down me-1"
+                                        aria-hidden="true"
+                                    ></i>
                                     Download
                                 </a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Podcast -->
                     <div class="col-md-5">
                         <div class="material-card p-4 h-100 d-flex flex-column">
                             <div class="d-flex align-items-center mb-4">
@@ -607,6 +710,7 @@
                                         height: 50px;
                                         background: rgba(99, 102, 241, 0.2);
                                     "
+                                    aria-hidden="true"
                                 >
                                     <i
                                         class="bi bi-mic"
@@ -614,21 +718,21 @@
                                     ></i>
                                 </div>
                                 <div>
-                                    <h5 class="fw-bold mb-0 text-white">
+                                    <h3 class="h5 fw-bold mb-0 text-white">
                                         Podcast de Bolso
-                                    </h5>
+                                    </h3>
                                     <small class="text-primary fw-bold"
                                         >Conteúdo em Áudio</small
                                     >
                                 </div>
                             </div>
-
                             <p class="text-secondary mb-4">
                                 Escolha a versão que melhor se adapta ao seu
                                 tempo. Ouça enquanto dirige ou faz suas
                                 atividades.
                             </p>
 
+                            <!-- Audio Express -->
                             <div
                                 class="mb-4 p-3 rounded-3"
                                 style="
@@ -639,33 +743,42 @@
                                 <div
                                     class="d-flex justify-content-between align-items-center mb-2"
                                 >
-                                    <span class="small fw-bold text-white"
-                                        ><i
+                                    <span class="small fw-bold text-white">
+                                        <i
                                             class="bi bi-lightning-charge-fill text-warning me-1"
+                                            aria-hidden="true"
                                         ></i>
-                                        Versão Express (6 min)</span
-                                    >
+                                        Versão Express (6 min)
+                                    </span>
                                 </div>
                                 <audio
                                     controls
                                     class="w-100 mb-2"
                                     style="height: 35px"
+                                    aria-label="Reprodutor de áudio versão expressa"
                                 >
                                     <source
                                         src="midia/seguranca-digital-resumo.mp3"
                                         type="audio/mpeg"
                                     />
+                                    Seu navegador não suporta o elemento de
+                                    áudio.
                                 </audio>
                                 <a
                                     href="midia/seguranca-digital-resumo.mp3"
                                     download
                                     class="text-primary small text-decoration-none"
+                                    aria-label="Baixar resumo em áudio versão expressa"
                                 >
-                                    <i class="bi bi-download me-1"></i> Baixar
-                                    resumo
+                                    <i
+                                        class="bi bi-download me-1"
+                                        aria-hidden="true"
+                                    ></i>
+                                    Baixar resumo
                                 </a>
                             </div>
 
+                            <!-- Audio Completo -->
                             <div
                                 class="p-3 rounded-3"
                                 style="
@@ -676,30 +789,38 @@
                                 <div
                                     class="d-flex justify-content-between align-items-center mb-2"
                                 >
-                                    <span class="small fw-bold text-white"
-                                        ><i
+                                    <span class="small fw-bold text-white">
+                                        <i
                                             class="bi bi-book-fill text-info me-1"
+                                            aria-hidden="true"
                                         ></i>
-                                        Versão Completa (16 min)</span
-                                    >
+                                        Versão Completa (16 min)
+                                    </span>
                                 </div>
                                 <audio
                                     controls
                                     class="w-100 mb-2"
                                     style="height: 35px"
+                                    aria-label="Reprodutor de áudio versão completa"
                                 >
                                     <source
                                         src="midia/seguranca-digital.mp3"
                                         type="audio/mpeg"
                                     />
+                                    Seu navegador não suporta o elemento de
+                                    áudio.
                                 </audio>
                                 <a
                                     href="midia/seguranca-digital.mp3"
                                     download
                                     class="text-primary small text-decoration-none"
+                                    aria-label="Baixar áudio versão completa"
                                 >
-                                    <i class="bi bi-download me-1"></i> Baixar
-                                    completo
+                                    <i
+                                        class="bi bi-download me-1"
+                                        aria-hidden="true"
+                                    ></i>
+                                    Baixar completo
                                 </a>
                             </div>
                         </div>
@@ -710,6 +831,7 @@
 
         <footer
             class="py-5 text-center border-top border-secondary border-opacity-25"
+            role="contentinfo"
         >
             <div class="container">
                 <small class="opacity-75">
@@ -719,9 +841,12 @@
                     <a
                         href="https://github.com/guilherme-ramon"
                         target="_blank"
+                        rel="noopener"
                         class="fw-bold"
+                        aria-label="Perfil de Guilherme Ramon no GitHub (abre em nova aba)"
                     >
-                        Guilherme Ramon <i class="bi bi-github"></i>
+                        Guilherme Ramon
+                        <i class="bi bi-github" aria-hidden="true"></i>
                     </a>
                     <br />
                     Este site possui fins puramente educativos e informativos.
@@ -732,54 +857,57 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
         <script>
-    // Define o ano atual automaticamente
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
+            document.getElementById("currentYear").textContent =
+                new Date().getFullYear();
 
-    function animateNumbers() {
-        const stats = document.querySelectorAll(".stat-number");
+            function animateNumbers() {
+                const stats = document.querySelectorAll(".stat-number");
 
-        stats.forEach((stat) => {
-            const target = parseInt(stat.getAttribute("data-target"));
-            const duration = 4000; 
-            const startTimestamp = performance.now();
+                stats.forEach((stat) => {
+                    const target = parseInt(stat.getAttribute("data-target"));
+                    const duration = 4000;
+                    const startTimestamp = performance.now();
 
-            function step(currentTimestamp) {
-                const elapsed = currentTimestamp - startTimestamp;
-                const progress = Math.min(elapsed / duration, 1);
+                    function step(currentTimestamp) {
+                        const elapsed = currentTimestamp - startTimestamp;
+                        const progress = Math.min(elapsed / duration, 4);
 
-                const currentCount = Math.floor(progress * target);
+                        const currentCount = Math.floor(progress * target);
 
-                let suffix = "";
-                if (target === 150) suffix = " Bi";
-                if (target === 70) suffix = " Mi";
+                        let suffix = "";
+                        if (target === 150) suffix = " Bi";
+                        if (target === 70) suffix = " Mi";
 
-                stat.innerText = currentCount.toLocaleString() + suffix;
+                        stat.innerText = currentCount.toLocaleString() + suffix;
 
-                if (progress < 1) {
+                        if (progress < 1) {
+                            window.requestAnimationFrame(step);
+                        }
+                    }
                     window.requestAnimationFrame(step);
-                }
+                });
             }
-            window.requestAnimationFrame(step);
-        });
-    }
 
-    // Lógica do Modal e Disparo da Animação
-    window.addEventListener("DOMContentLoaded", () => {
-        const modalElement = document.getElementById("avisoEducativo");
-        const myModal = new bootstrap.Modal(modalElement);
+            window.addEventListener("DOMContentLoaded", () => {
+                const modalElement = document.getElementById("avisoEducativo");
 
-        // Dispara o modal após 800ms
-        setTimeout(() => {
-            myModal.show();
-        }, 800);
+                if (modalElement) {
+                    const myModal = new bootstrap.Modal(modalElement);
 
-        // O SEGREDO: Escuta quando o modal terminou de fechar
-        modalElement.addEventListener('hidden.bs.modal', function () {
-            // Rola suavemente para o topo (caso não esteja) e inicia os números
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            animateNumbers();
-        });
-    });
-</script>
+                    myModal.show();
+
+                    modalElement.addEventListener(
+                        "hidden.bs.modal",
+                        function () {
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+
+                            if (typeof animateNumbers === "function") {
+                                animateNumbers();
+                            }
+                        },
+                    );
+                }
+            });
+        </script>
     </body>
 </html>
